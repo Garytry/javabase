@@ -11,17 +11,17 @@ import designpattern.builder.product.Product;
  */
 public class Director {
 
-    Builder tvBuild=null;
+    Builder builder=null;
     public Director(Builder build){
-        this.tvBuild=build;
+        this.builder=build;
     }
     public Product buildProduct(String partA, String partB, String partC){
         //规范建造流程
-        tvBuild.startBuild();
-        tvBuild.addPartA(partA);
-        tvBuild.addPartB(partB);
-        tvBuild.addPartC(partC);
-        return tvBuild.buildProduct();
+        builder.startBuild();
+        builder.addPartA(partA);
+        builder.addPartB(partB);
+        builder.addPartC(partC);
+        return builder.buildProduct();
     }
 
 }

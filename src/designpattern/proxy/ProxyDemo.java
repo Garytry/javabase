@@ -1,11 +1,9 @@
 package designpattern.proxy;
 
 import designpattern.factory.entity.Cat;
+import designpattern.proxy.dynamicproxy.AutoCarShop;
 import designpattern.proxy.dynamicproxy.Shop;
-import designpattern.proxy.staticproxy.AnimalShop;
-import designpattern.proxy.staticproxy.CatFactory;
-import designpattern.proxy.staticproxy.DogFactory;
-import designpattern.proxy.staticproxy.Factory;
+import designpattern.proxy.staticproxy.*;
 
 /**
  * 代理模式：
@@ -29,5 +27,17 @@ public class ProxyDemo {
         shop1.setFactory(dogFactory);
         Factory dog = (Factory) shop1.getProxyInstance();
         dog.getAnimal("dog");
+
+        CarShop carShop = new CarShop(new BwmCarfactory());
+        carShop.createCar();
+        carShop = new CarShop(new AudiCarFactory());
+        carShop.createCar();
+
+        AutoCarShop autoCarShop = new AutoCarShop();
+        autoCarShop.setProxyFactory(new BwmCarfactory());
+        autoCarShop.getProxyFactory().createCar();
+        autoCarShop.setProxyFactory(new AudiCarFactory());
+        autoCarShop.getProxyFactory().createCar();
+
     }
 }
