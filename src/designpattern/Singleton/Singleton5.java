@@ -5,13 +5,14 @@ package designpattern.Singleton;
  */
 public class Singleton5 {
 
-    private static class SingletonHolder{
+    private static class SingletonHolder {
         private static final Singleton5 SINGLETON_5 = new Singleton5();
     }
 
-    private Singleton5(){};
+    private Singleton5() {
+    }
 
-    public static final Singleton5 getInstance(){
+    public static final Singleton5 getInstance() {
         return SingletonHolder.SINGLETON_5;
     }
 }
